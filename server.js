@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import cors from 'cors';
 import MongooseconnectDB from './DB/Mongoose.js';
 import connectDB from './DB/Mongo.js';
-import registerRouter from './routes/auth/Register.js';
+import registerRouter from './routes/auth/register.js';
 import loginRouter from './routes/auth/login.js';
 import forgotPasswordRouter from './routes/auth/forgotpass.js';
 import resetPasswordRouter from './routes/auth/reset.js';
