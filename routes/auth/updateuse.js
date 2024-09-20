@@ -22,5 +22,20 @@ usersRouter.put('/:email', async (req, res) => {
     res.status(500).send({ message: 'Internal Server Error' });
   }
 });
+usersRouter.get('/profile', async (req, res) => {
+  try {
+    const userEmail = req.user.email; // Assuming you store user info in req.user after authentication
+    console.log('User Email:', userEmail);
+    const user = await userModel.findOne({ email: userEmail }, { __v: 0, _id: 0, password: 0 });
 
+    if (user) {
+      res.send(user);
+    } else {
+      res.status(404).send({ message: 'User Not Found' });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({ message: 'Internal Server Error' });
+  }
+});
 export default usersRouter;
