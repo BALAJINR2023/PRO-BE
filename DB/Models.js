@@ -37,19 +37,62 @@ const userSchema = new mongoose.Schema({
   });
 const userModel = new mongoose.model("user", userSchema, "users");
 const CarSchema = new mongoose.Schema({
-  name: String,
   id: String,
-  model: String,
-  price: Number,
-  location: String,
-  availability: { type: Date },
-  carType: String,
-  fuelType: String,
-  transmissionType: String,
-  dealerType: String,
-  year: Number,
-  image: { type: String, default: null },
+  name: {
+    type: String,
+    required: true,
+  },
+  id: {
+    type: String,
+    required: true,
+  },
+  model: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  location: {
+    type: String,
+    required: true,
+  },
+  availability: {
+    type: Date,
+    required: true,
+  },
+  carType: {
+    type: String,
+    required: true,
+  },
+  fuelType: {
+    type: String,
+    required: true,
+  },
+  transmissionType: {
+    type: String,
+    required: true,
+  },
+  dealerType: {
+    type: String,
+    required: true,
+  },
+  year: {
+    type: Number,
+    required: true,
+  },
+  seats: {
+    type: String,
+    required: true, // Assuming seats are mandatory
+  },
+  email: String,
+  image: {
+    type: String,
+    default: null,
+  },
 });
+
 const carModel= new mongoose.model('Car', CarSchema);
 export {userModel, carModel};
   
